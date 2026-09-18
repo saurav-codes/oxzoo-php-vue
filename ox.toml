@@ -6,10 +6,8 @@
 name = "oxzoo-php-vue"
 branch = "main"
 runtime = "executable"
-framework = "generic"
 package_manager = ""
 port = 9112
-environment_file = "/etc/ox/projects/oxzoo-php-vue.env"
 
 required_packages = ["nodejs", "php-cli"]
 
