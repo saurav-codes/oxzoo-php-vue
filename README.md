@@ -17,12 +17,12 @@ This repo is the official ox example for a plain PHP 8 API plus a Vue 3 SPA buil
 
 One variable, two paths:
 
-- **Runtime (backend)**: `router.php` reads `getenv('GREETING_TAG')` on every `GET /api/greeting` and answers `hello world oxzoo-php-vue_{GREETING_TAG}` as `text/plain`. PHP runs as its built-in server with a router file, no framework; ox loads the value into the process from `/etc/ox/apps/oxzoo-php-vue.env`.
+- **Runtime (backend)**: `router.php` reads `getenv('GREETING_TAG')` on every `GET /api/greeting` and answers `hello world oxzoo-php-vue_{GREETING_TAG}` as `text/plain`. PHP runs as its built-in server with a router file, no framework; ox loads the value into the process from the project's env file (`/srv/ox/oxzoo-php-vue/env`).
 - **Build time (SPA)**: `vite.config.js` sets `envPrefix: ["GREETING_", "VITE_"]`, so the same variable is exposed to the app as `import.meta.env.GREETING_TAG` and baked into the bundle when `npm run build` runs. Changing it later requires a rebuild (a redeploy does that).
 
 ## Deploy with ox
 
-1. Paste the clone URL `https://github.com/saurav-codes/oxzoo-php-vue.git` into the ox dashboard.
+1. Paste the clone URL `git@github.com:saurav-codes/oxzoo-php-vue.git` into the ox dashboard.
 2. In the Environment editor, add `GREETING_TAG` (any short tag, for example `v1`) BEFORE the first deploy, so both the API process and the build see it.
 3. Press Deploy. ox installs the NodeSource repo plus `nodejs` and `php-cli`, runs `npm install` and `npm run build`, starts `php -S 127.0.0.1:9112 router.php`, and polls `http://127.0.0.1:9112/health` until ready.
 
