@@ -1,6 +1,6 @@
 <?php
-// Router for PHP's built-in server. nginx only proxies /api and /health to
-// this process; static SPA files are served by nginx from dist/.
+// Router for PHP's built-in server. Caddy sends only /api and /health to
+// this process; it serves the SPA's static files from dist/ itself.
 
 header('Content-Type: text/plain; charset=utf-8');
 
