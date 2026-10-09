@@ -1,5 +1,7 @@
 # oxzoo-php-vue
 
+Deployed with [ox](https://deploywithox.com): deploy a repo to your own server with one command, no Docker. [Docs](https://deploywithox.com/docs) · [Guide for this stack](https://deploywithox.com/docs/guides/php)
+
 This repo is the official ox example for a plain PHP 8 API plus a Vue 3 SPA built with Vite on one Ubuntu VPS: ox installs `php-cli` and Node 22, runs `npm install` and `npm run build`, starts PHP's built-in server (`php -S 127.0.0.1:9112 router.php`) under systemd, and nginx serves the built `dist/` folder while proxying only `/api` and `/health` to it. The backend is framework-free PHP with a single router file, no Composer and no dependencies. One env var, `GREETING_TAG`, flows through the stack twice, once at runtime (PHP reads it per request) and once at build time (Vite bakes it into the SPA bundle), so the deployed page demonstrates both env paths ox supports.
 
 ## Stack
